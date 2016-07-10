@@ -7,15 +7,19 @@ import org.springframework.stereotype.Controller;
 
 import com.rachio.secretsanta.model.Participant;
 import com.rachio.secretsanta.service.SecretSantaService;
+import com.rachio.secretsanta.service.ai.SmarterSecretSanta;
 
 @Controller
 public class SecretSantaController {
 
+	// TODO: Could use Spring to inject the implementation of this
+	private SecretSantaService secretSantaService = new SmarterSecretSanta();
+	
 	/**
 	 * Creates secret santa assignments from existing participants.
 	 */
 	public Map<Participant, Participant> createAssignments() {
-		return new SecretSantaService().createAssignments();
+		return secretSantaService.createAssignments();
 	}
 
 	/**
@@ -27,7 +31,7 @@ public class SecretSantaController {
 	 * @return a
 	 */
 	public Map<Participant, Participant> createAssignments(List<Participant> participants) {
-		return new SecretSantaService().createAssignments(participants);
+		return secretSantaService.createAssignments(participants);
 	}
 
 }

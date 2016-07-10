@@ -1,9 +1,9 @@
 package com.rachio.secretsanta.service;
 
-import static com.rachio.secretsanta.Constants.Players.p1;
-import static com.rachio.secretsanta.Constants.Players.p2;
-import static com.rachio.secretsanta.Constants.Players.p3;
-import static com.rachio.secretsanta.Constants.Players.p8;
+import static com.rachio.secretsanta.Constants.Players.PLAYER1;
+import static com.rachio.secretsanta.Constants.Players.PLAYER2;
+import static com.rachio.secretsanta.Constants.Players.PLAYER3;
+import static com.rachio.secretsanta.Constants.Players.PLAYER8;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -20,6 +20,7 @@ import org.junit.Test;
 import com.rachio.secretsanta.dao.ParticipantDao;
 import com.rachio.secretsanta.dao.ParticipantDaoImpl;
 import com.rachio.secretsanta.model.Participant;
+import com.rachio.secretsanta.service.ai.SmartSecretSanta;
 
 public class SecretSantaServiceTest {
 
@@ -31,7 +32,7 @@ public class SecretSantaServiceTest {
 
 	@Before
 	public void setup() {
-		controller = new SecretSantaService();
+		controller = new SmartSecretSanta();
 		dao = new ParticipantDaoImpl();
 	}
 
@@ -49,7 +50,7 @@ public class SecretSantaServiceTest {
 
 	@Test
 	public void testCreateAssignmentsProvided() {
-		List<Participant> participants = Arrays.asList(p1, p2, p8, p3);
+		List<Participant> participants = Arrays.asList(PLAYER1, PLAYER2, PLAYER8, PLAYER3);
 		assignments = controller.createAssignments(participants);
 		verifyAssignments(participants);
 	}
