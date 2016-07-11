@@ -36,14 +36,13 @@ In either case, the call will return a Map (asssociative array) of values where 
 
 ### Design Notes & Considerations
 Below is a list of things I would change/enhance given more time:
-<blockquote>
+
 * Understand the API better in order to implement part 3
 * Created more test cases with variable inputs to improve the functionality of the application
 * Used Spring to inject interface implementations (for example SecretSantaService) as well as input test data
 * Created a data source either with an in-memory database, the flatpack API and some text files and used a persistance framework like myBatis or Hibernate
 * Created performance tests to evaluate timing
 * As always, documentation could be better :)
-</blockquote>
 
 ### Running the application
 You will need to install lombock if you intend to run this in an IDE.  Otherwise you can just run via maven.
